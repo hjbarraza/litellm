@@ -29,7 +29,7 @@ describe("provider_info_helpers", () => {
       displayName: Providers.LITELLM_PROXY,
       logo: providerLogoMap[Providers.LITELLM_PROXY],
     });
-    expect(providerLogoMap[Providers.LITELLM_PROXY]).toContain("litellm_monogram");
+    expect(providerLogoMap[Providers.LITELLM_PROXY]).toContain("llm_firewall_monogram");
   });
 
   it("resolves Meta Model API separately from Meta Llama and isolates their bundled models", () => {

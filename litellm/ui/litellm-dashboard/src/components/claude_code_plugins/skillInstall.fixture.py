@@ -84,7 +84,7 @@ def run(command: str, fail: bool) -> None:
                     ended = True
                     break
                 output += chunk
-                if not sent and b"LiteLLM API key: " in output:
+                if not sent and b"LLM Firewall API key: " in output:
                     while (
                         cast(int, termios.tcgetattr(terminal)[3]) & termios.ECHO
                     ):  # cast-ok: lflag is an integer bitmask

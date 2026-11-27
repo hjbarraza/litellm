@@ -184,9 +184,9 @@ test.describe("UI theme", () => {
     const save = page.getByRole("button", { name: "Save Changes" });
     const asset = (file: string) => new URL(`/ui/assets/logos/${file}`, page.url()).href;
     const branding = {
-      logo_url: asset("litellm_logo.png"),
-      logo_url_dark: asset("litellm_logo_dark.png"),
-      favicon_url: asset("litellm_monogram.svg"),
+      logo_url: asset("llm_firewall_logo.svg"),
+      logo_url_dark: asset("llm_firewall_logo_dark.svg"),
+      favicon_url: asset("llm_firewall_monogram.svg"),
     };
     await logo.fill(branding.logo_url);
     await dark.fill(branding.logo_url_dark);

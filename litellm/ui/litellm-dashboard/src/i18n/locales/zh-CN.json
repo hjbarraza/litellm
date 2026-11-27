@@ -278,7 +278,7 @@
       },
       "webhookUrl": {
         "label": "Webhook URL",
-        "hint": "紧急停用开关触发时 LiteLLM 调用的完整 HTTP 或 HTTPS URL，留空可移除此开关。"
+        "hint": "紧急停用开关触发时 LLM Firewall 调用的完整 HTTP 或 HTTPS URL，留空可移除此开关。"
       },
       "method": "方法",
       "headers": {
@@ -307,14 +307,14 @@
       },
       "title": "危险操作",
       "killSwitch": "紧急停止",
-      "configuredDescription": "调用已配置的 Webhook 停止此智能体的上游运行环境，可能使所有使用者的服务中断，且无法从 LiteLLM 撤销",
+      "configuredDescription": "调用已配置的 Webhook 停止此智能体的上游运行环境，可能使所有使用者的服务中断，且无法从 LLM Firewall 撤销",
       "notConfigured": "尚未配置，请在设置中添加紧急停止 Webhook 后启用此操作",
       "fire": "触发紧急停止",
       "lastResult": "上次结果：HTTP {{status}}",
       "confirm": {
         "title": "要为 {{name}} 触发紧急停止开关吗？",
         "outageTitle": "此操作可能导致服务中断",
-        "outageDescription": "LiteLLM 将立即调用 {{method}} {{url}}。该 webhook 对智能体执行的任何操作均不受 LiteLLM 控制，且无法在此撤销",
+        "outageDescription": "LLM Firewall 将立即调用 {{method}} {{url}}。该 webhook 对智能体执行的任何操作均不受 LLM Firewall 控制，且无法在此撤销",
         "typeToConfirm": "输入 <name/> 以确认：",
         "inputLabel": "确认智能体名称",
         "cancel": "取消",
@@ -393,7 +393,7 @@
         "note": "用户必须先通过此网关的 Microsoft SSO 登录，后续委托调用必须同时满足用户和智能体权限。"
       },
       "executionLabel": "执行",
-      "verificationNote": "LiteLLM 先验证智能体的 Entra 令牌，再匹配此身份。保存这些字段仅配置绑定关系，实际验证由认证请求完成。运行时认证请求头需单独配置。"
+      "verificationNote": "LLM Firewall 先验证智能体的 Entra 令牌，再匹配此身份。保存这些字段仅配置绑定关系，实际验证由认证请求完成。运行时认证请求头需单独配置。"
     },
     "formKit": {
       "noMatchingOptions": "没有匹配的选项"
@@ -417,7 +417,7 @@
         },
         "protocolVersion": {
           "label": "协议版本",
-          "tooltip": "LiteLLM 为此智能体向客户端提供的 A2A 协议版本。LiteLLM 会将上游智能体的响应转换为该版本，因此无论原始智能体使用哪个版本，客户端看到的始终是您在此选择的版本。"
+          "tooltip": "LLM Firewall 为此智能体向客户端提供的 A2A 协议版本。LLM Firewall 会将上游智能体的响应转换为该版本，因此无论原始智能体使用哪个版本，客户端看到的始终是您在此选择的版本。"
         },
         "skills": {
           "label": "技能"
@@ -465,7 +465,7 @@
       },
       "basic": {
         "title": "基本信息",
-        "protocolVersionHelp": "LiteLLM 向客户端提供此版本，并转换上游智能体的响应以与之匹配，无论原始智能体使用哪个版本。"
+        "protocolVersionHelp": "LLM Firewall 向客户端提供此版本，并转换上游智能体的响应以与之匹配，无论原始智能体使用哪个版本。"
       },
       "skills": {
         "title": "技能"
@@ -477,7 +477,7 @@
         "title": "可选设置"
       },
       "litellm": {
-        "title": "LiteLLM 参数"
+        "title": "LLM Firewall 参数"
       },
       "cost": {
         "title": "成本配置"
@@ -608,7 +608,7 @@
       "rediscover": "重新发现",
       "discover": "发现",
       "title": "从智能体 URL 发现",
-      "titleHint": "LiteLLM 将从此 URL 获取 {{path}}，供您选择要通过代理公开的技能和能力。",
+      "titleHint": "LLM Firewall 将从此 URL 获取 {{path}}，供您选择要通过代理公开的技能和能力。",
       "parentDrivenIntro": "根据上方填写的连接信息，将获取：",
       "fillFieldsFirst": "请先填写上方字段",
       "manualIntro": "粘贴上游智能体的基础 URL。我们将依次尝试 <cardfile/>、<agentfile/> 和 <rootfile/>。",
@@ -623,7 +623,7 @@
       "skillsSelected": "已选择 {{selected}} / {{total}}",
       "noSkills": "上游智能体卡片没有技能",
       "capabilities": "能力",
-      "capabilitiesHint": "仅列出 LiteLLM 目前可完整代理的能力，其他能力（推送通知、扩展）即将推出。",
+      "capabilitiesHint": "仅列出 LLM Firewall 目前可完整代理的能力，其他能力（推送通知、扩展）即将推出。",
       "notAdvertised": "上游未公布"
     },
     "panel": {
@@ -1184,7 +1184,7 @@
         "vectorStoreId": "向量存储 ID",
         "vectorStoreIdHint": "填写 API 提供商的向量存储 ID",
         "name": "向量存储名称",
-        "nameHint": "为向量存储设置自定义名称，此名称将在 LiteLLM UI 中显示。",
+        "nameHint": "为向量存储设置自定义名称，此名称将在 LLM Firewall UI 中显示。",
         "description": "描述",
         "credentials": "现有凭据",
         "credentialsHint": "可为此向量存储选择 API 提供商凭据，例如 Bedrock API 密钥。",
@@ -1196,7 +1196,7 @@
         "default": "输入提供商的向量存储 ID",
         "vertexRagEngine": "6917529027641081856（Vertex AI / RAG Engine 控制台中的语料库 ID）",
         "vertexAiSearch": "my-datastore_1234567890（Vertex AI / Agent Search 控制台中的数据存储 ID）",
-        "vertexAiSearchWithEngine": "填写在 LiteLLM 中引用此资源的任意标识",
+        "vertexAiSearchWithEngine": "填写在 LLM Firewall 中引用此资源的任意标识",
         "valkey": "my-search-index（Valkey 中的 FT 索引名称）",
         "mongodb": "my-vector-index（MongoDB Vector Search 索引名称）",
         "opensearch": "my-knn-index（OpenSearch 索引名称）"
@@ -1224,7 +1224,7 @@
       },
       "pgVector": {
         "title": "需要设置 PG Vector",
-        "intro": "LiteLLM 提供连接 PG Vector 的服务器。使用此提供商的步骤：",
+        "intro": "LLM Firewall 提供连接 PG Vector 的服务器。使用此提供商的步骤：",
         "steps": {
           "deploy": "从以下地址部署 litellm-pgvector 服务器：",
           "configure": "为 PostgreSQL 数据库配置 pgvector 扩展",
@@ -1234,18 +1234,18 @@
       },
       "valkey": {
         "title": "需要设置 Valkey",
-        "intro": "LiteLLM 搜索已存储在 Valkey 中的文档，不会自动创建索引或上传文档。创建此向量存储前，请确认：",
+        "intro": "LLM Firewall 搜索已存储在 Valkey 中的文档，不会自动创建索引或上传文档。创建此向量存储前，请确认：",
         "steps": {
           "searchEnabled": "Valkey 服务器已启用向量搜索（valkey-search 模块，包含在 valkey-bundle 镜像以及 AWS ElastiCache／MemoryDB for Valkey 中）",
           "indexLoaded": "您已创建搜索索引并加载文档及其向量。请将索引名称填入向量存储 ID",
           "embeddingModel": "请确认生成现有向量的嵌入模型，并先将其添加到代理的模型列表后再于下方选择。使用其他模型会导致检索结果错误",
           "fieldNames": "请确认文档的文本和向量字段名。如果不是 text 和 embedding，请在下方设置"
         },
-        "howItWorks": "收到查询后，LiteLLM 使用下方模型将其转为向量，并从索引返回最相近的文档。"
+        "howItWorks": "收到查询后，LLM Firewall 使用下方模型将其转为向量，并从索引返回最相近的文档。"
       },
       "opensearch": {
         "title": "需要先配置 OpenSearch",
-        "intro": "LiteLLM 会搜索您在 OpenSearch Serverless 集合或 OpenSearch Service 域中已有的 k-NN 索引，不会创建索引或上传文档。创建此向量存储前，请确认：",
+        "intro": "LLM Firewall 会搜索您在 OpenSearch Serverless 集合或 OpenSearch Service 域中已有的 k-NN 索引，不会创建索引或上传文档。创建此向量存储前，请确认：",
         "steps": {
           "knnField": "索引包含存放每个文档嵌入的 knn_vector 字段。请将索引名称填为向量存储 ID；如果其他端点已使用该 ID，则填入“索引名称”",
           "embeddingModel": "您清楚生成这些嵌入所用的嵌入模型。该模型必须已添加到此代理的“模型”中，才能在下方选择。使用其他模型会返回错误的结果",
@@ -1271,7 +1271,7 @@
           "guide": "在您的 Google Cloud 项目中启用 Discovery Engine API，并按照指南创建数据存储：<guide>创建 Vertex AI Search 数据存储</guide>",
           "location": "选择支持的位置：global、us 或 eu",
           "dataStoreId": "大多数数据存储类型（Cloud Storage、BigQuery、Media）均可复制数据存储 ID，并填入下方的向量存储 ID 字段。",
-          "engineId": "对于网站、医疗健康以及基于连接器的数据源（Drive、Gmail、Slack、Jira 等）：在数据存储之上创建搜索应用，然后复制 <strong>Engine ID</strong> 并填入 Engine ID 字段。向量存储 ID 仍为必填项，用作此记录在 LiteLLM 端的名称，但设置 Engine ID 后，GCP URL 中不会使用它。"
+          "engineId": "对于网站、医疗健康以及基于连接器的数据源（Drive、Gmail、Slack、Jira 等）：在数据存储之上创建搜索应用，然后复制 <strong>Engine ID</strong> 并填入 Engine ID 字段。向量存储 ID 仍为必填项，用作此记录在 LLM Firewall 端的名称，但设置 Engine ID 后，GCP URL 中不会使用它。"
         }
       }
     },
@@ -1335,28 +1335,28 @@
           "apiKey": "MongoDB Sidecar 中配置的 MONGODB_SIDECAR_API_KEY",
           "database": "存放待搜索集合的 MongoDB 数据库",
           "collection": "建立 MongoDB Vector Search 索引时使用的集合",
-          "embeddingModel": "选择此代理中用于生成集合现有向量的嵌入模型。LiteLLM 使用它对每条搜索查询进行嵌入，因此必须使用同一个模型。使用维度相同的其他模型不会报错，但会返回错误结果。若列表中没有此模型，请先在模型页面添加。",
+          "embeddingModel": "选择此代理中用于生成集合现有向量的嵌入模型。LLM Firewall 使用它对每条搜索查询进行嵌入，因此必须使用同一个模型。使用维度相同的其他模型不会报错，但会返回错误结果。若列表中没有此模型，请先在模型页面添加。",
           "embeddingField": "文档中存放嵌入向量的字段，必须与建立 MongoDB Vector Search 索引时使用的路径一致，默认为 embedding。",
-          "textField": "文档中存放可读文本的字段。LiteLLM 在搜索结果中返回此文本，支持 metadata.body 这样的点分路径，默认为 text。",
-          "numCandidates": "MongoDB 返回最佳结果前检查的近邻数量。数值越大，结果越准确，但速度越慢。留空则由 LiteLLM 根据请求的结果数量自动调整。"
+          "textField": "文档中存放可读文本的字段。LLM Firewall 在搜索结果中返回此文本，支持 metadata.body 这样的点分路径，默认为 text。",
+          "numCandidates": "MongoDB 返回最佳结果前检查的近邻数量。数值越大，结果越准确，但速度越慢。留空则由 LLM Firewall 根据请求的结果数量自动调整。"
         },
         "valkey": {
           "host": "Valkey 服务的主机名或 IP 地址，不包含 redis:// 或端口，例如 my-valkey.example.com。",
           "port": "Valkey 服务的监听端口。若未修改，请保留 6379。",
           "password": "登录 Valkey 服务的密码。若未设置密码，请留空。",
           "ssl": "若 Valkey 服务要求使用 TLS 加密连接，请设置为 true，例如已启用传输加密的 AWS ElastiCache。",
-          "embeddingModel": "选择此代理中用于生成 Valkey 索引现有向量的嵌入模型。LiteLLM 使用它对每条搜索查询进行嵌入，因此必须使用同一个模型，否则结果将不正确。若列表中没有此模型，请先在模型页面添加。",
-          "textField": "已存文档中存放可读文本的字段。LiteLLM 在搜索结果中返回此文本，必须与存储文档时的字段一致，默认为 text。",
-          "embeddingField": "已存文档中存放嵌入向量的字段。LiteLLM 使用此字段进行搜索，因此必须与建立索引时使用的字段一致，默认为 embedding。"
+          "embeddingModel": "选择此代理中用于生成 Valkey 索引现有向量的嵌入模型。LLM Firewall 使用它对每条搜索查询进行嵌入，因此必须使用同一个模型，否则结果将不正确。若列表中没有此模型，请先在模型页面添加。",
+          "textField": "已存文档中存放可读文本的字段。LLM Firewall 在搜索结果中返回此文本，必须与存储文档时的字段一致，默认为 text。",
+          "embeddingField": "已存文档中存放嵌入向量的字段。LLM Firewall 使用此字段进行搜索，因此必须与建立索引时使用的字段一致，默认为 embedding。"
         },
         "opensearch": {
           "apiBase": "OpenSearch Serverless 集合或 OpenSearch Service 域的端点，以 https:// 开头。",
           "region": "集合或域所在的 AWS 区域。留空则使用端点中的区域；端点为自定义域时请设置此项。",
-          "embeddingModel": "此代理中用于生成索引现有向量的嵌入模型。LiteLLM 使用它对每条搜索查询进行嵌入，因此必须使用同一个模型。若列表中没有此模型，请先在模型页面添加。",
+          "embeddingModel": "此代理中用于生成索引现有向量的嵌入模型。LLM Firewall 使用它对每条搜索查询进行嵌入，因此必须使用同一个模型。若列表中没有此模型，请先在模型页面添加。",
           "embeddingField": "索引映射中存放每个文档嵌入向量的顶层 knn_vector 字段，默认为 embedding。",
-          "textField": "每个文档中存放可读文本的顶层字段。LiteLLM 在搜索结果中返回此文本，默认为 text。",
+          "textField": "每个文档中存放可读文本的顶层字段。LLM Firewall 在搜索结果中返回此文本，默认为 text。",
           "indexName": "要搜索的 OpenSearch 索引。留空则使用向量存储 ID；如需将两个端点中同名的索引以不同 ID 注册，请设置此项。",
-          "searchPipeline": "OpenSearch 集群中搜索管道的名称。LiteLLM 会通过它执行每次搜索。混合搜索需要包含 normalization-processor 的搜索管道，否则 OpenSearch 返回的混合得分未经归一化。",
+          "searchPipeline": "OpenSearch 集群中搜索管道的名称。LLM Firewall 会通过它执行每次搜索。混合搜索需要包含 normalization-processor 的搜索管道，否则 OpenSearch 返回的混合得分未经归一化。",
           "hybridSearch": "开启后，将对文本字段的 BM25 关键词匹配与 k-NN 向量搜索结合使用。需要配置包含 normalization-processor 的搜索管道。"
         },
         "s3Vectors": {
@@ -1930,7 +1930,7 @@
       "method": "安装方式",
       "authenticated": "已认证",
       "public": "公开命令",
-      "authenticatedHint": "请在终端提示中输入您自己的 LiteLLM 密钥。网关会在下载技能前检查您的访问权限",
+      "authenticatedHint": "请在终端提示中输入您自己的 LLM Firewall 密钥。网关会在下载技能前检查您的访问权限",
       "publicHint": "此技能已列入网关的公开索引，无需密钥即可安装",
       "command": "安装命令",
       "authenticatedRequirements": "需要安装了 Bash、curl、unzip、Node.js 22.20 或更高版本以及 npm 的 macOS 或 Linux。如需安装到项目，请在项目目录中运行",
@@ -2116,11 +2116,11 @@
       "urlStorage": "URL 存储方式",
       "urlModes": {
         "register": "使用外部来源",
-        "import": "在 LiteLLM 中存储副本"
+        "import": "在 LLM Firewall 中存储副本"
       },
-      "urlStorageHint": "将公开的 GitHub 或 skills.sh 内容存储在 LiteLLM 中，或让客户端从外部仓库或压缩包安装。skills.sh 链接需要存储副本。",
+      "urlStorageHint": "将公开的 GitHub 或 skills.sh 内容存储在 LLM Firewall 中，或让客户端从外部仓库或压缩包安装。skills.sh 链接需要存储副本。",
       "importHint": "从公开的 GitHub 或 skills.sh 存储可移植技能，以便在受支持的智能体中下载和安装。对于包含多个技能的仓库，请使用选择器或路径。浏览器 URL 自带修订版本；仓库 URL 默认使用 HEAD，除非您设置了 ref。",
-      "registerHint": "注册 Git 仓库、子文件夹或 HTTPS ZIP，供客户端安装。LiteLLM 仅存储引用，不会下载其内容。",
+      "registerHint": "注册 Git 仓库、子文件夹或 HTTPS ZIP，供客户端安装。LLM Firewall 仅存储引用，不会下载其内容。",
       "replaceHint": "用此引用替换已发布的来源。发布后，将移除当前托管的压缩包和可移植描述符。之前的版本仍然可用。",
       "registryName": "注册表名称",
       "optionalRegistryName": "注册表名称（可选）",
@@ -2251,7 +2251,7 @@
         "empty": "暂无发布记录。现有技能将在下次发布更新时开始记录历史。",
         "legacy": "旧版版本",
         "retained": "已保留上传的 ZIP，并已根据其来源摘要完成校验。",
-        "reference": "仅为来源引用。外部文件可能会变更，且不会由 LiteLLM 保留。",
+        "reference": "仅为来源引用。外部文件可能会变更，且不会由 LLM Firewall 保留。",
         "metadata": "已发布的元数据",
         "download": "下载保留的 ZIP",
         "downloadFailed": "无法下载此版本。",
@@ -2333,7 +2333,7 @@
       "setup": {
         "title": "Claude Code 市场设置",
         "removeFirst": "如果您之前添加此市场时未使用密钥，请先在 Claude Code 中将其移除。移除市场也会卸载您从中安装的插件，因此添加代码片段后，请通过 /plugin 重新安装这些插件：",
-        "requiresKey": "此代理需要 LiteLLM 密钥才能读取市场。请将以下内容添加到 <settings/>，并将 <placeholder/> 替换为您的密钥：",
+        "requiresKey": "此代理需要 LLM Firewall 密钥才能读取市场。请将以下内容添加到 <settings/>，并将 <placeholder/> 替换为您的密钥：",
         "runCommand": "在 Claude Code 中运行此命令以注册市场：",
         "orSettings": "或将以下内容添加到 <settings/> 中以实现持久配置："
       }
@@ -3093,7 +3093,7 @@
       "label": "选择智能体",
       "placeholder": "选择智能体",
       "empty": "未找到智能体",
-      "help": "所选智能体将使用此密钥请求 LiteLLM"
+      "help": "所选智能体将使用此密钥请求 LLM Firewall"
     },
     "organization": {
       "label": "组织",
@@ -4258,7 +4258,7 @@
         "dailyMargin": "每日加价",
         "monthlyMargin": "每月加价",
         "modelBreakdown": "模型明细",
-        "footer": "由 LiteLLM 定价计算器于 {{date}} 生成"
+        "footer": "由 LLM Firewall 定价计算器于 {{date}} 生成"
       },
       "csv": {
         "title": "LLM 多模型成本估算报告",
@@ -4354,7 +4354,7 @@
         "name": "名称",
         "apiBase": {
           "label": "Headroom API 基础地址",
-          "hint": "Headroom 压缩服务的基础 URL（LiteLLM 会调用其 /v1/compress 端点）",
+          "hint": "Headroom 压缩服务的基础 URL（LLM Firewall 会调用其 /v1/compress 端点）",
           "description": "Headroom 压缩服务的访问 URL"
         },
         "defaultOn": "应用于全部请求",
@@ -4368,7 +4368,7 @@
       },
       "overview": {
         "title": "Headroom 提示词压缩",
-        "description": "Headroom 是 LiteLLM 原生护栏，会在提示词发送到模型之前对其进行压缩，从而减少您需付费的输入 Token。被移除的 Token 会按价格计算，并作为压缩节省额显示在“用量”选项卡中。<docs>Headroom 配置文档</docs>",
+        "description": "Headroom 是 LLM Firewall 原生护栏，会在提示词发送到模型之前对其进行压缩，从而减少您需付费的输入 Token。被移除的 Token 会按价格计算，并作为压缩节省额显示在“用量”选项卡中。<docs>Headroom 配置文档</docs>",
         "loading": "加载中…",
         "empty": "尚未配置提示词压缩护栏，可在下方添加以节省输入 Token 费用",
         "alwaysOn": "始终启用",
@@ -4377,12 +4377,12 @@
     },
     "promptCachingRequests": {
       "title": "提示词缓存请求",
-      "description": "包含已记录 LiteLLM 缓存注入或提供商缓存读写的请求。仅缓存命中不能证明存在 LiteLLM 注入，旧日志可能未记录该信息。",
+      "description": "包含已记录 LLM Firewall 缓存注入或提供商缓存读写的请求。仅缓存命中不能证明存在 LLM Firewall 注入，旧日志可能未记录该信息。",
       "savingsNote": "净节省费用按日志用量及当前配置价格估算，并扣除缓存写入溢价。负数表示缓存增加了成本，暂无数据表示无法为该请求定价。",
       "filters": {
         "label": "提示词缓存请求筛选",
         "all": "全部缓存",
-        "injected": "LiteLLM 注入",
+        "injected": "LLM Firewall 注入",
         "hits": "缓存命中"
       },
       "selectDateRange": "选择日期范围以查看请求",
@@ -4393,7 +4393,7 @@
       "columns": {
         "request": "请求",
         "model": "模型",
-        "injection": "LiteLLM 注入",
+        "injection": "LLM Firewall 注入",
         "cacheReads": "缓存读取",
         "cacheWrites": "缓存写入",
         "actualCost": "实际成本",
@@ -5650,7 +5650,7 @@
     },
     "scim": {
       "title": "SCIM 配置",
-      "description": "跨域身份管理系统（SCIM）可让您在 LiteLLM 中自动预配和管理用户与组。",
+      "description": "跨域身份管理系统（SCIM）可让您在 LLM Firewall 中自动预配和管理用户与组。",
       "tenantUrl": {
         "title": "SCIM 租户 URL",
         "description": "请在您的身份提供商的 SCIM 集成设置中使用此 URL。",
@@ -5880,7 +5880,7 @@
       },
       "emptyPlaceholder": {
         "title": "未找到 Vault 配置",
-        "description": "配置 Hashicorp Vault，为您的 LiteLLM 部署安全管理提供商 API 密钥和机密。",
+        "description": "配置 Hashicorp Vault，为您的 LLM Firewall 部署安全管理提供商 API 密钥和机密。",
         "configure": "配置 Vault"
       },
       "editModal": {
@@ -5964,7 +5964,7 @@
       },
       "emptyPlaceholder": {
         "title": "未找到 CyberArk 配置",
-        "description": "配置 CyberArk Conjur，为您的 LiteLLM 部署安全管理提供商 API 密钥和机密。",
+        "description": "配置 CyberArk Conjur，为您的 LLM Firewall 部署安全管理提供商 API 密钥和机密。",
         "configure": "配置 CyberArk"
       },
       "editModal": {
@@ -6646,7 +6646,7 @@
       },
       "lastRefreshed": "上次刷新：",
       "refresh": "刷新",
-      "description": "LiteLLM <cacheDocs>响应缓存</cacheDocs>（例如 Redis / 内存）的分析数据：即直接从缓存返回、无需调用 LLM 提供商的请求。提供商侧的<promptDocs>提示词缓存</promptDocs>（来自 Anthropic、OpenAI 等的缓存输入 Token）不在此显示；请查看用量页面上的“提示词缓存指标”，或在日志页面中查看单个请求。",
+      "description": "LLM Firewall <cacheDocs>响应缓存</cacheDocs>（例如 Redis / 内存）的分析数据：即直接从缓存返回、无需调用 LLM 提供商的请求。提供商侧的<promptDocs>提示词缓存</promptDocs>（来自 Anthropic、OpenAI 等的缓存输入 Token）不在此显示；请查看用量页面上的“提示词缓存指标”，或在日志页面中查看单个请求。",
       "filters": {
         "virtualKeysPlaceholder": "选择虚拟密钥",
         "noVirtualKeys": "未找到虚拟密钥",
@@ -6715,7 +6715,7 @@
     },
     "settings": {
       "title": "缓存设置",
-      "subtitle": "为 LiteLLM 配置 Redis 缓存",
+      "subtitle": "为 LLM Firewall 配置 Redis 缓存",
       "sections": {
         "connection": "连接设置",
         "cluster": "集群配置",
@@ -7262,7 +7262,7 @@
     },
     "msTeams": {
       "title": "Microsoft Teams 告警设置",
-      "intro": "通过传入 Webhook 将 LiteLLM 告警发送到 Microsoft Teams 频道。请参阅<docs>Microsoft 文档：传入 Webhook</docs>进行创建",
+      "intro": "通过传入 Webhook 将 LLM Firewall 告警发送到 Microsoft Teams 频道。请参阅<docs>Microsoft 文档：传入 Webhook</docs>进行创建",
       "required": " 必填 * ",
       "help": {
         "webhookUrl": "Teams 频道的传入 Webhook URL，可使用 Workflows 或传入 Webhook 连接器"
@@ -7296,7 +7296,7 @@
       },
       "emptyPlaceholder": {
         "title": "尚未配置 CloudZero 集成",
-        "description": "连接 CloudZero 账户，即可直接在 LiteLLM 中跟踪和分析云服务成本。",
+        "description": "连接 CloudZero 账户，即可直接在 LLM Firewall 中跟踪和分析云服务成本。",
         "add": "添加 CloudZero 集成"
       },
       "form": {
@@ -7701,7 +7701,7 @@
     "usagePanel": {
       "title": "此组的路由原理",
       "priorityExplanation": "请求 <group/> 时，将按优先级顺序尝试符合条件的模型。直接请求成员模型时仍使用原有路由行为。",
-      "strategyExplanation": "调用方可按名称请求组内任意模型；LiteLLM 会在后台使用 <strategy/> 策略选择部署。"
+      "strategyExplanation": "调用方可按名称请求组内任意模型；LLM Firewall 会在后台使用 <strategy/> 策略选择部署。"
     },
     "modal": {
       "createTitle": "创建路由组",
@@ -7714,7 +7714,7 @@
         "strategyRequired": "请选择路由策略"
       },
       "groupName": "路由组名称",
-      "groupNameDescription": "API 调用时将此名称作为模型名，LiteLLM 会将请求路由到组内某个模型。",
+      "groupNameDescription": "API 调用时将此名称作为模型名，LLM Firewall 会将请求路由到组内某个模型。",
       "models": "模型",
       "modelsPriorityDescription": "此组将在模型列表中的所选模型之间路由。模型可属于多个优先级组。",
       "modelsDescription": "此组将在模型列表中的所选模型之间路由。每个模型只能属于一个非优先级组。",
@@ -8063,7 +8063,7 @@
         "showing": "显示 {{shown}} / {{total}} 个模型",
         "empty": {
           "decisionsTitle": "此代理没有使用 decisions 模式的模型",
-          "decisionsBody": "下方列出了 LiteLLM 支持的决策模型。",
+          "decisionsBody": "下方列出了 LLM Firewall 支持的决策模型。",
           "noMatchTitle": "没有匹配的模型",
           "noMatchBody": "调整筛选条件以查看更多模型。",
           "noneTitle": "暂无模型",
@@ -8273,19 +8273,19 @@
       "routes": {
         "decisions": "/v1/decisions 文档",
         "selfHosted": "自托管，独立路由",
-        "needsUpgrade": "需要更新的 LiteLLM",
+        "needsUpgrade": "需要更新的 LLM Firewall",
         "ownDeployment": "使用自己的名称部署"
       },
       "addModel": "添加模型",
-      "title": "LiteLLM 支持的决策模型",
+      "title": "LLM Firewall 支持的决策模型",
       "summary_one": "来自 $t(aiHub.decisionModelGarden.providerCount, {\"count\": {{providers}} }) 的 {{count}} 个决策模型通过 <code>/v1/decisions</code> 响应。",
       "summary_other": "来自 $t(aiHub.decisionModelGarden.providerCount, {\"count\": {{providers}} }) 的 {{count}} 个决策模型通过 <code>/v1/decisions</code> 响应。",
       "providerCount_one": "{{count}} 个提供商",
       "providerCount_other": "{{count}} 个提供商",
       "selfHosted_one": "另有 {{count}} 个为自托管，通过其自己的路由响应。",
       "selfHosted_other": "另有 {{count}} 个为自托管，通过各自的路由响应。",
-      "needsUpgrade_one": "另有 {{count}} 个需要更新版本的 LiteLLM。",
-      "needsUpgrade_other": "另有 {{count}} 个需要更新版本的 LiteLLM。",
+      "needsUpgrade_one": "另有 {{count}} 个需要更新版本的 LLM Firewall。",
+      "needsUpgrade_other": "另有 {{count}} 个需要更新版本的 LLM Firewall。",
       "docs": "决策模型文档",
       "showFewer": "收起",
       "showAll": "显示全部 {{total}} 个"
@@ -8427,8 +8427,8 @@
     "catalog": {
       "modelHub": "模型中心",
       "skillsHub": "技能中心",
-      "eyebrow": "LiteLLM 目录",
-      "quickStart": "LiteLLM 快速入门",
+      "eyebrow": "LLM Firewall 目录",
+      "quickStart": "LLM Firewall 快速入门",
       "moreNavigation": "更多导航",
       "allProviders": "全部提供商",
       "allModes": "全部",
@@ -8491,12 +8491,12 @@
     },
     "linksMenu": {
       "trigger": "链接",
-      "version": "LiteLLM v{{version}}"
+      "version": "LLM Firewall v{{version}}"
     },
     "baseUrlField": {
       "label": "基础 URL",
       "copy": "复制基础 URL",
-      "hint": "在任意兼容 OpenAI 的 SDK 中，将您的 LiteLLM 密钥用作 API 密钥"
+      "hint": "在任意兼容 OpenAI 的 SDK 中，将您的 LLM Firewall 密钥用作 API 密钥"
     },
     "healthBadge": {
       "responseTime": "响应时间",
@@ -8781,7 +8781,7 @@
         "telemetry": "遥测",
         "customers": "$t(customerPortal.entities.organizations)"
       },
-      "homeLink": "LiteLLM 首页"
+      "homeLink": "LLM Firewall 首页"
     },
     "pageDescriptions": {
       "home": "查看用量概览、最新发布和博客动态",
@@ -8845,7 +8845,7 @@
       "triggerLabel": "账户菜单，{{role}}，当前登录账户 {{identity}}",
       "unknownRole": "未知角色",
       "unknownIdentity": "未知",
-      "thanks": "感谢使用 LiteLLM！",
+      "thanks": "感谢使用 LLM Firewall！",
       "tier": "层级",
       "premium": "高级版",
       "upgradeHint": "升级到高级版以使用高级功能",
@@ -8875,8 +8875,8 @@
     "navbar": {
       "expandSidebar": "展开侧边栏",
       "collapseSidebar": "收起侧边栏",
-      "logoAlt": "LiteLLM 品牌标志",
-      "thanks": "感谢使用 LiteLLM！",
+      "logoAlt": "LLM Firewall 品牌标志",
+      "thanks": "感谢使用 LLM Firewall！",
       "productDocs": "产品文档"
     },
     "viewSwitcher": {
@@ -8931,7 +8931,7 @@
         "otherUpdates_other": "及其他 {{count}} 项更新"
       },
       "upgrade": {
-        "title": "LiteLLM v{{version}} 已发布",
+        "title": "LLM Firewall v{{version}} 已发布",
         "description": "{{summary}}。您当前的版本为 v{{current}}",
         "descriptionWithoutCounts": "您当前的版本为 v{{current}}",
         "link": "查看发行说明"
@@ -9158,7 +9158,7 @@
       "passwordRequired": "请输入密码"
     },
     "ssoNotice": {
-      "title": "已启用单点登录（SSO）。加载此页面时，LiteLLM 不再自动跳转到 SSO 登录流程。如需重新启用自动跳转到 SSO，请在环境配置中设置 <setting/>。",
+      "title": "已启用单点登录（SSO）。加载此页面时，LLM Firewall 不再自动跳转到 SSO 登录流程。如需重新启用自动跳转到 SSO，请在环境配置中设置 <setting/>。",
       "close": "关闭"
     },
     "adminDisabled": {
@@ -9167,10 +9167,10 @@
     },
     "form": {
       "title": "登录",
-      "subtitle": "登录 LiteLLM 管理 UI。",
+      "subtitle": "登录 LLM Firewall 管理 UI。",
       "defaultCredentials": {
         "title": "默认登录凭据",
-        "body": "默认情况下，用户名为 <username/>，密码为您设置的 LiteLLM Proxy<masterkey/>。",
+        "body": "默认情况下，用户名为 <username/>，密码为您设置的 LLM Firewall Proxy<masterkey/>。",
         "help": "需要设置 UI 凭据或 SSO？<docs>请查看文档</docs>。"
       },
       "worker": {
@@ -9261,7 +9261,7 @@
       "usageAria": "最近 {{days}} 天的用量",
       "usageFailed": "用量加载失败",
       "retry": "重试",
-      "whatsNew": "LiteLLM 最新动态",
+      "whatsNew": "LLM Firewall 最新动态",
       "leaderboard": {
         "title": "排行榜",
         "subtitle": "最近 {{days}} 天的 Token 占比，以及前后半段时间的变化"
@@ -9284,7 +9284,7 @@
         "resetFailed": "重置主题设置失败，请重试"
       },
       "title": "UI 主题",
-      "description": "使用自定义标志和网站图标，定制 LiteLLM 管理界面。",
+      "description": "使用自定义标志和网站图标，定制 LLM Firewall 管理界面。",
       "logoUrl": {
         "label": "自定义标志 URL",
         "hint": "输入自定义标志 URL，留空则使用默认标志"
@@ -9452,7 +9452,7 @@
       "copied": "已复制"
     },
     "createdKeyDisplay": {
-      "saveWarning": "请将此密钥保存在安全且便于访问的地方。出于安全考虑，<bold>您将无法再通过 LiteLLM 账户查看此密钥</bold>。如果丢失此密钥，您需要重新生成一个。",
+      "saveWarning": "请将此密钥保存在安全且便于访问的地方。出于安全考虑，<bold>您将无法再通过 LLM Firewall 账户查看此密钥</bold>。如果丢失此密钥，您需要重新生成一个。",
       "virtualKey": "虚拟密钥：",
       "copied": "已复制！",
       "copyVirtualKey": "复制虚拟密钥",
@@ -9573,7 +9573,7 @@
         "label": "已记录的总节省费用",
         "loading": "加载中…",
         "hint": "压缩 + 提示词缓存 + 自动路由",
-        "info": "旁边三张卡片所记录节省金额的总和，不包含没有估算值的自动路由请求。其中缓存部分仅计入 LiteLLM 注入带来的节省；客户端或提供商提供的缓存仅计入缓存卡片的总计。"
+        "info": "旁边三张卡片所记录节省金额的总和，不包含没有估算值的自动路由请求。其中缓存部分仅计入 LLM Firewall 注入带来的节省；客户端或提供商提供的缓存仅计入缓存卡片的总计。"
       },
       "compression": {
         "label": "压缩节省的费用",
@@ -9582,9 +9582,9 @@
       },
       "caching": {
         "label": "提示词缓存节省的费用",
-        "hint": "LiteLLM 注入",
+        "hint": "LLM Firewall 注入",
         "total": "总计",
-        "info": "相比所有 Token 均按输入价格计费，缓存节省金额为缓存命中折扣减去提供商写入缓存收取的额外费用。主数值仅计入 LiteLLM 通过配置的注入点或自动提示词缓存插入断点带来的节省。旁边的总计还包含自带 cache_control 的请求，以及提供商隐式缓存产生的节省。当写入缓存多于复用缓存时，两者都可能为负，因此主数值不一定较小。"
+        "info": "相比所有 Token 均按输入价格计费，缓存节省金额为缓存命中折扣减去提供商写入缓存收取的额外费用。主数值仅计入 LLM Firewall 通过配置的注入点或自动提示词缓存插入断点带来的节省。旁边的总计还包含自带 cache_control 的请求，以及提供商隐式缓存产生的节省。当写入缓存多于复用缓存时，两者都可能为负，因此主数值不一定较小。"
       },
       "autorouter": {
         "label": "自动路由节省的费用",
@@ -10206,7 +10206,7 @@
       },
       "stats": {
         "cheaper": "比我们的 Devin 账单更便宜",
-        "providers": "通过 LiteLLM 接入的提供商",
+        "providers": "通过 LLM Firewall 接入的提供商",
         "harnesses": "智能体运行框架"
       },
       "badge": "现已开源",
@@ -10215,13 +10215,13 @@
       "alreadyDeployed": "已经部署了 Moyai？",
       "askAdmin": "已经部署了 Moyai？请让代理管理员连接它",
       "worksWith": "支持 Claude Code 和 Codex",
-      "selfHosted": "自托管，通过 LiteLLM 接入 100 多家提供商",
+      "selfHosted": "自托管，通过 LLM Firewall 接入 100 多家提供商",
       "seeItInAction": "查看实际效果",
       "seeItInActionBody": "通过 Slack 或浏览器分配任务。它会在独立云工作区中编辑代码、运行测试并创建 PR，即使您的电脑已关闭也能继续工作。",
       "anyHarness": "任意智能体框架",
       "anyHarnessFootnote": "每个会话可单独选择运行框架，工作区、工具和权限保持不变。",
       "anyModel": "任意模型，任意提供商",
-      "anyModelFootnote": "通过您的 LiteLLM 网关路由，并按团队成员跟踪费用。",
+      "anyModelFootnote": "通过您的 LLM Firewall 网关路由，并按团队成员跟踪费用。",
       "runYourOwn": "运行自己的云端智能体",
       "runYourOwnBody": "在您自己的基础设施中部署并连接到此网关。代码和凭据始终保留在您的账号中。",
       "getOnGithub": "在 GitHub 获取 Moyai",
@@ -10230,10 +10230,10 @@
     "connected": {
       "workspaceLinked": "已关联工作区",
       "keyIssued": "已签发虚拟密钥",
-      "modelsAvailable": "个模型可通过 LiteLLM 使用",
+      "modelsAvailable": "个模型可通过 LLM Firewall 使用",
       "badge": "已连接",
       "title": "Moyai 已连接",
-      "description": "此部署现已连接到您的 LiteLLM 网关。",
+      "description": "此部署现已连接到您的 LLM Firewall 网关。",
       "openMoyai": "打开 Moyai",
       "backToGateway": "返回 AI 网关"
     },
@@ -10902,13 +10902,13 @@
         "uiReady": "UI 会话：就绪",
         "responseIdPrefix": "响应 ID",
         "uiSessionPrefix": "UI 会话",
-        "apiPending": "LiteLLM 将使用 previous_response_id 管理会话",
+        "apiPending": "LLM Firewall 将使用 previous_response_id 管理会话",
         "uiPending": "UI 将使用对话历史管理会话",
-        "apiActive": "LiteLLM API 会话已激活，上下文由服务器端维护",
+        "apiActive": "LLM Firewall API 会话已激活，上下文由服务器端维护",
         "uiActive": "UI 会话已激活，上下文由客户端维护",
         "title": "会话管理",
         "about": "关于会话管理",
-        "description": "选择 LiteLLM API 会话管理（使用 previous_response_id）或 UI 会话管理（使用对话历史）",
+        "description": "选择 LLM Firewall API 会话管理（使用 previous_response_id）或 UI 会话管理（使用对话历史）",
         "uiLabel": "UI",
         "toggle": "使用 API 会话管理",
         "apiLabel": "API",
@@ -11548,7 +11548,7 @@
         "tool": "工具"
       },
       "tooltips": {
-        "responseCache": "此响应来自 LiteLLM 的响应缓存。请求未发送到模型提供商，因此没有读取或写入提供商的提示词缓存。",
+        "responseCache": "此响应来自 LLM Firewall 的响应缓存。请求未发送到模型提供商，因此没有读取或写入提供商的提示词缓存。",
         "timeToFirstToken": "首 Token 耗时",
         "totalLatency": "总延迟",
         "promptTokens": "输入 Token",
@@ -11620,7 +11620,7 @@
       "litellmHeading": "LiteLLM 内容过滤器",
       "showLess": "收起",
       "showAll": "显示全部（{{total}}）",
-      "litellmDescription": "LiteLLM 内置护栏，零延迟，无外部依赖，无额外成本。",
+      "litellmDescription": "LLM Firewall 内置护栏，零延迟，无外部依赖，无额外成本。",
       "decisionModelHeading": "决策模型",
       "decisionModelDescription": "让决策模型针对每个请求或响应回答“是/否”问题，分数达到阈值时拦截或记录。",
       "partnerHeading": "合作方护栏",
@@ -11883,7 +11883,7 @@
           "description": "Conduct Guard 在模型调用前根据工作区规则评估提示词，涵盖提示词注入、PII 和自定义策略，并给出拦截、警告和审批三类判定结果。"
         },
         "wingback": {
-          "description": "Wingback 为 LiteLLM 提供运行时安全防护：通过 Wingback 连接器服务实现 PII 检测、提示词注入防护、有害内容检测和策略执行。"
+          "description": "Wingback 为 LLM Firewall 提供运行时安全防护：通过 Wingback 连接器服务实现 PII 检测、提示词注入防护、有害内容检测和策略执行。"
         },
         "airia": {
           "description": "Airia AI 安全与治理平台。提供针对提示词注入、数据泄露防护和负责任 AI 的运行时护栏，作用于每一条提示词和响应。"
@@ -12112,8 +12112,8 @@
         "closeLabel": "关闭详情面板",
         "endpoint": "端点",
         "method": "方法",
-        "forwardKeyTitle": "转发 LiteLLM API 密钥",
-        "forwardKeyDescription": "启用后，调用方的 LiteLLM API 密钥会作为 <code>Authorization</code> 请求头转发到您的护栏端点。这样您的护栏即可使用原始调用方的凭据对模型调用进行身份验证。",
+        "forwardKeyTitle": "转发 LLM Firewall API 密钥",
+        "forwardKeyDescription": "启用后，调用方的 LLM Firewall API 密钥会作为 <code>Authorization</code> 请求头转发到您的护栏端点。这样您的护栏即可使用原始调用方的凭据对模型调用进行身份验证。",
         "staticHeaders": "固定请求头",
         "staticHeadersHint": "随发往护栏的每次请求发送。",
         "noStaticHeaders": "尚未配置固定请求头。",
@@ -13004,7 +13004,7 @@
     "usageBreakdown": {
       "ariaLabel": "用量和成本",
       "title": "用量和成本",
-      "description": "提供商报告的护栏计费单位及 LiteLLM 对应定价",
+      "description": "提供商报告的护栏计费单位及 LLM Firewall 对应定价",
       "empty": "此期间未记录计费用量。",
       "metrics": {
         "cost": "成本",
@@ -13030,7 +13030,7 @@
       "costMath": {
         "title": "此成本的计算方式",
         "formula": "已定价单位数 × 单价 = 成本（按计数器计算）",
-        "explanation": "单价来自 LiteLLM 内置的成本映射表。"
+        "explanation": "单价来自 LLM Firewall 内置的成本映射表。"
       },
       "unitsMath": {
         "title": "用量单位的汇总方式",
@@ -13223,7 +13223,7 @@
       "title": "权限管理／访问控制",
       "subtitle": "配置访问权限和安全设置（可选）",
       "allowAllKeys": {
-        "label": "允许所有 LiteLLM 密钥",
+        "label": "允许所有 LLM Firewall 密钥",
         "tooltip": "启用后，所有 API 密钥都可访问此 MCP 服务器。",
         "description": "如需向所有密钥公开此服务器，请启用。"
       },
@@ -13234,8 +13234,8 @@
       },
       "delegateAuth": {
         "label": "将认证委托给上游（PKCE 透传）",
-        "tooltip": "启用后，LiteLLM 将跳过对此服务器的 API 密钥和 SSO 检查，由客户端直接与上游 MCP 服务器完成 PKCE。仅认证类型为 oauth2 时生效。此路由不会记录费用，也不执行按密钥限速。",
-        "description": "跳过 LiteLLM 认证，让客户端直接通过上游 OAuth MCP 服务器认证。"
+        "tooltip": "启用后，LLM Firewall 将跳过对此服务器的 API 密钥和 SSO 检查，由客户端直接与上游 MCP 服务器完成 PKCE。仅认证类型为 oauth2 时生效。此路由不会记录费用，也不执行按密钥限速。",
+        "description": "跳过 LLM Firewall 认证，让客户端直接通过上游 OAuth MCP 服务器认证。"
       },
       "oauthPassthrough": {
         "label": "OAuth 透传",
@@ -13244,7 +13244,7 @@
       },
       "internalDelegateWarning": {
         "title": "使用上游 OAuth 委托的内部服务器",
-        "description": "此 MCP 服务器配置为仅限内网，但认证委托给上游。匿名用户无需 LiteLLM 会话即可访问上游 OAuth2 /authorize 流程，请确保上游提供商和网络执行访问控制。"
+        "description": "此 MCP 服务器配置为仅限内网，但认证委托给上游。匿名用户无需 LLM Firewall 会话即可访问上游 OAuth2 /authorize 流程，请确保上游提供商和网络执行访问控制。"
       },
       "accessGroups": {
         "label": "MCP 访问组",
@@ -13277,7 +13277,7 @@
         "invalidTokenValidationJson": "令牌验证规则中的 JSON 无效"
       },
       "toasts": {
-        "browserTokenHeld": "令牌仅保留在当前浏览器会话中，不会保存到 LiteLLM。现在可以预览和配置工具。",
+        "browserTokenHeld": "令牌仅保留在当前浏览器会话中，不会保存到 LLM Firewall。现在可以预览和配置工具。",
         "oauthAuthorized": "OAuth 授权成功！请点击“创建 MCP 服务器”以保存配置。",
         "created": "MCP 服务器已创建",
         "submittedForReview": "MCP 服务器已提交管理员审核",
@@ -13319,7 +13319,7 @@
       },
       "maxConcurrentRequests": {
         "label": "最大并发请求数（可选）",
-        "tooltip": "LiteLLM 对此服务同时执行的工具调用数上限，超出的调用会等待空闲位置。留空表示不限制。",
+        "tooltip": "LLM Firewall 对此服务同时执行的工具调用数上限，超出的调用会等待空闲位置。留空表示不限制。",
         "placeholder": "例如 10"
       },
       "rpm": {
@@ -13345,7 +13345,7 @@
     },
     "serverEdit": {
       "toasts": {
-        "browserTokenHeld": "令牌仅保留在当前浏览器会话中，现可加载和配置工具，不会保存到 LiteLLM。",
+        "browserTokenHeld": "令牌仅保留在当前浏览器会话中，现可加载和配置工具，不会保存到 LLM Firewall。",
         "oauthAuthorized": "OAuth 授权成功！请点击“更新 MCP 服务器”以保存凭据。",
         "persistTokenFailed": "MCP 服务器已更新，但未能保存 OAuth 令牌",
         "persistTokenFailedWithReason": "MCP 服务器已更新，但保存 OAuth 令牌失败：{{reason}}",
@@ -13376,7 +13376,7 @@
         "specUrlTooltip": "OpenAPI 规范的 URL，支持 JSON 或 YAML。将根据规范中定义的 API 端点自动生成 MCP 工具。",
         "specUrlRequired": "请输入 OpenAPI 规范 URL",
         "maxConcurrentRequests": "最大并发请求数（可选）",
-        "maxConcurrentRequestsTooltip": "LiteLLM 对此服务同时执行的工具调用数上限，超出的调用会等待空闲位置。留空表示不限制。",
+        "maxConcurrentRequestsTooltip": "LLM Firewall 对此服务同时执行的工具调用数上限，超出的调用会等待空闲位置。留空表示不限制。",
         "maxConcurrentRequestsPlaceholder": "例如 10",
         "rpm": "RPM 上限（所有调用方）",
         "rpmTooltip": "所有密钥和团队对此服务每分钟请求数的总上限。留空表示不限制",
@@ -13401,7 +13401,7 @@
       },
       "missingOAuthFlow": {
         "title": "此服务器尚未设置 OAuth 流程",
-        "description": "选择机器到机器（M2M）或交互式（PKCE）并保存，确保 LiteLLM 按预期认证。未设置前将回退至按用户的交互式认证，并保守处理机器凭据结构。"
+        "description": "选择机器到机器（M2M）或交互式（PKCE）并保存，确保 LLM Firewall 按预期认证。未设置前将回退至按用户的交互式认证，并保守处理机器凭据结构。"
       },
       "aws": {
         "intro": "适用于托管在 AWS Bedrock AgentCore 上的 MCP 服务器。",
@@ -13430,7 +13430,7 @@
         },
         "roleArn": {
           "label": "AWS 角色 ARN",
-          "tooltip": "可选。填写签名前通过 STS 扮演的 IAM 角色 ARN。设置后，LiteLLM 调用 sts:AssumeRole 获取临时凭据。"
+          "tooltip": "可选。填写签名前通过 STS 扮演的 IAM 角色 ARN。设置后，LLM Firewall 调用 sts:AssumeRole 获取临时凭据。"
         },
         "sessionName": {
           "label": "AWS 会话名称",
@@ -13545,24 +13545,24 @@
     "idJagFormFields": {
       "orgTokenEndpoint": {
         "label": "组织令牌端点（第一阶段）",
-        "tooltip": "IdP 组织授权服务器的令牌端点。LiteLLM 在此将用户身份断言交换为 ID-JAG 断言，使用 RFC 8693，requested_token_type=urn:ietf:params:oauth:token-type:id-jag。",
+        "tooltip": "IdP 组织授权服务器的令牌端点。LLM Firewall 在此将用户身份断言交换为 ID-JAG 断言，使用 RFC 8693，requested_token_type=urn:ietf:params:oauth:token-type:id-jag。",
         "required": "ID-JAG 必须填写组织令牌端点"
       },
       "resourceTokenEndpoint": {
         "label": "资源令牌端点（第二阶段）",
-        "tooltip": "上游资源授权服务器的令牌端点。LiteLLM 将 ID-JAG 断言作为 RFC 7523 jwt-bearer 授权提交到此处，获取 MCP 服务器接受的访问令牌。",
+        "tooltip": "上游资源授权服务器的令牌端点。LLM Firewall 将 ID-JAG 断言作为 RFC 7523 jwt-bearer 授权提交到此处，获取 MCP 服务器接受的访问令牌。",
         "required": "ID-JAG 必须填写资源令牌端点"
       },
       "clientId": {
         "label": "客户端 ID",
-        "tooltip": "LiteLLM 在两个交换步骤中进行身份认证时使用的 OAuth2 客户端 ID。",
+        "tooltip": "LLM Firewall 在两个交换步骤中进行身份认证时使用的 OAuth2 客户端 ID。",
         "required": "ID-JAG 必须填写 Client ID",
         "placeholder": "输入 OAuth 客户端 ID",
         "placeholderEditing": "输入 OAuth 客户端 ID（留空则保留现有值）"
       },
       "clientSecret": {
         "label": "客户端密钥",
-        "tooltip": "通过 client_secret_post 验证 LiteLLM 的 OAuth 客户端身份。改用私钥时可留空，私钥优先于此密钥。",
+        "tooltip": "通过 client_secret_post 验证 LLM Firewall 的 OAuth 客户端身份。改用私钥时可留空，私钥优先于此密钥。",
         "secretOrPrivateKey": "请填写客户端密钥或客户端私钥中的任一项",
         "placeholder": "输入 OAuth 客户端密钥",
         "placeholderEditing": "输入 OAuth 客户端密钥（留空则保留现有值）"
@@ -13670,7 +13670,7 @@
       },
       "roleArn": {
         "label": "AWS 角色 ARN",
-        "tooltip": "可选。填写签名前通过 STS 扮演的 IAM 角色 ARN。设置后，LiteLLM 调用 sts:AssumeRole 获取临时凭据。若未显式提供密钥，将使用 IAM 角色、环境变量等环境凭据作为来源身份。",
+        "tooltip": "可选。填写签名前通过 STS 扮演的 IAM 角色 ARN。设置后，LLM Firewall 调用 sts:AssumeRole 获取临时凭据。若未显式提供密钥，将使用 IAM 角色、环境变量等环境凭据作为来源身份。",
         "placeholder": "arn:aws:iam::123456789012:role/MyRole（可选）"
       },
       "sessionName": {
@@ -13680,7 +13680,7 @@
       }
     },
     "passthroughAuthorizeSection": {
-      "description": "此认证类型由调用方自带上游令牌，LiteLLM 不存储令牌。为预览工具并配置工具白名单，可在此向上游授权，令牌仅保留在浏览器会话中。下方配置的 OAuth 应用会随服务器保存，内部用户从工具页授权时将通过该应用。",
+      "description": "此认证类型由调用方自带上游令牌，LLM Firewall 不存储令牌。为预览工具并配置工具白名单，可在此向上游授权，令牌仅保留在浏览器会话中。下方配置的 OAuth 应用会随服务器保存，内部用户从工具页授权时将通过该应用。",
       "appMayNotMatchUpstream": "您更改了上游 URL 或端点，此处的 OAuth 应用针对原上游注册，可能已不适用。请更新客户端 ID，或清空以使用动态客户端注册。",
       "clientId": {
         "label": "OAuth 客户端 ID（可选）",
@@ -13712,7 +13712,7 @@
         "authorizing": "正在等待授权…",
         "exchanging": "正在交换授权码…",
         "start": "授权并获取工具（仅限浏览器）",
-        "success": "令牌仅保留在当前浏览器会话中，现可预览和配置工具，未保存到 LiteLLM。"
+        "success": "令牌仅保留在当前浏览器会话中，现可预览和配置工具，未保存到 LLM Firewall。"
       }
     },
     "envVarsSection": {
@@ -13772,15 +13772,15 @@
     },
     "upstreamTokenHeaderField": {
       "label": "令牌请求头（可选）",
-      "tooltip": "LiteLLM 为此服务获取的令牌应放入哪个上游请求头。留空时使用默认的 Authorization: Bearer <token>，大多数服务都接受此格式。若上游要求其他位置，请填写请求头名称，例如由 API 网关通过 esb-oauth 验证凭据，而静态请求头中的另一个 Authorization 则透传给后方服务。"
+      "tooltip": "LLM Firewall 为此服务获取的令牌应放入哪个上游请求头。留空时使用默认的 Authorization: Bearer <token>，大多数服务都接受此格式。若上游要求其他位置，请填写请求头名称，例如由 API 网关通过 esb-oauth 验证凭据，而静态请求头中的另一个 Authorization 则透传给后方服务。"
     },
     "dcrBridgeToggle": {
       "label": "网关托管登录（DCR 桥接）",
       "tooltip": "允许 Claude Desktop 等仅支持 OAuth 的客户端通过网关注册和登录。关闭后改为转发上游服务的 OAuth 元数据，适用于已在上游 IdP 预注册的客户端。"
     },
     "truePassthroughWarning": {
-      "title": "完全透传将禁用此服务器的 LiteLLM 认证",
-      "description": "任何能访问网关的人都可在没有 LiteLLM 密钥的情况下调用此服务器。调用方的 Authorization 请求头会原样转发至上游，密钥和团队级速率限制及费用追踪不再适用，认证完全由上游负责。如果仍需 LiteLLM 认证，请选择 OAuth 委托。"
+      "title": "完全透传将禁用此服务器的 LLM Firewall 认证",
+      "description": "任何能访问网关的人都可在没有 LLM Firewall 密钥的情况下调用此服务器。调用方的 Authorization 请求头会原样转发至上游，密钥和团队级速率限制及费用追踪不再适用，认证完全由上游负责。如果仍需 LLM Firewall 认证，请选择 OAuth 委托。"
     },
     "servers": {
       "sort": {
@@ -13872,7 +13872,7 @@
         "requiredFieldCount_one": "（{{count}} 个必填字段）",
         "requiredFieldCount_other": "（{{count}} 个必填字段）",
         "noRules": "未设置规则",
-        "help": "选择合规提交必须填写的字段，LiteLLM 将在下方各提交卡片中用 ✓／✗ 展示每条规则的结果。",
+        "help": "选择合规提交必须填写的字段，LLM Firewall 将在下方各提交卡片中用 ✓／✗ 展示每条规则的结果。",
         "saving": "正在保存…",
         "save": "保存规则",
         "cancel": "取消"
@@ -14124,7 +14124,7 @@
       },
       "header": {
         "title": "实时连接",
-        "description": "当前代理工作进程中的有状态 Streamable HTTP 会话，按发送 MCP 初始化请求的 AI 客户端和已认证 LiteLLM 用户分组，不统计无状态请求和 SSE 连接。"
+        "description": "当前代理工作进程中的有状态 Streamable HTTP 会话，按发送 MCP 初始化请求的 AI 客户端和已认证 LLM Firewall 用户分组，不统计无状态请求和 SSE 连接。"
       },
       "refresh": {
         "ariaLabel": "刷新实时连接",
@@ -14360,7 +14360,7 @@
     },
     "connect": {
       "title": "连接 MCP 客户端",
-      "description": "通过 LiteLLM MCP 在任意 MCP 客户端中直接使用工具，以安全便捷的连接让 AI 助手执行实际任务。",
+      "description": "通过 LLM Firewall MCP 在任意 MCP 客户端中直接使用工具，以安全便捷的连接让 AI 助手执行实际任务。",
       "featureCard": {
         "serverHeaderToggle": "通过传递 <code>x-mcp-servers</code> 请求头，将工具限制为特定 MCP 服务器或 MCP 组",
         "optionsTitle": "两种方式",
@@ -14375,24 +14375,24 @@
       },
       "serverInfoCard": {
         "title": "MCP 服务器信息",
-        "description": "LiteLLM MCP 服务器的连接详情"
+        "description": "LLM Firewall MCP 服务器的连接详情"
       },
       "implementationExampleCard": {
         "title": "实现示例"
       },
       "litellmTab": {
-        "title": "LiteLLM 代理 API 集成",
-        "description": "连接 LiteLLM 代理 Responses API，为多个模型提供商集成工具",
+        "title": "LLM Firewall API 集成",
+        "description": "连接 LLM Firewall Responses API，为多个模型提供商集成工具",
         "virtualKeyCard": {
           "title": "虚拟密钥设置",
-          "description": "配置用于认证的 LiteLLM 代理虚拟密钥",
-          "instructions": "从 LiteLLM 代理控制台获取虚拟密钥，或联系管理员"
+          "description": "配置用于认证的 LLM Firewall虚拟密钥",
+          "instructions": "从 LLM Firewall控制台获取虚拟密钥，或联系管理员"
         },
-        "exampleDescription": "使用 LiteLLM 代理 Responses API 的完整 cURL 示例"
+        "exampleDescription": "使用 LLM Firewall Responses API 的完整 cURL 示例"
       },
       "openaiTab": {
         "title": "OpenAI Responses API 集成",
-        "description": "将 OpenAI Responses API 连接到 LiteLLM MCP 服务器以集成工具",
+        "description": "将 OpenAI Responses API 连接到 LLM Firewall MCP 服务器以集成工具",
         "apiKeyCard": {
           "title": "API 密钥设置",
           "description": "配置用于认证的 OpenAI API 密钥",
@@ -14402,7 +14402,7 @@
       },
       "cursorTab": {
         "title": "Cursor IDE 集成",
-        "description": "通过 LiteLLM MCP 在 Cursor IDE 中直接使用工具，让 AI 助手在开发环境内执行实际任务。",
+        "description": "通过 LLM Firewall MCP 在 Cursor IDE 中直接使用工具，让 AI 助手在开发环境内执行实际任务。",
         "setupTitle": "设置说明",
         "steps": {
           "openSettings": {
@@ -14425,7 +14425,7 @@
       },
       "httpTab": {
         "title": "Streamable HTTP 传输",
-        "description": "通过 HTTP 传输连接 LiteLLM MCP，兼容支持 HTTP 流式传输的 MCP 客户端。",
+        "description": "通过 HTTP 传输连接 LLM Firewall MCP，兼容支持 HTTP 流式传输的 MCP 客户端。",
         "connectionCard": {
           "title": "通用 MCP 连接",
           "description": "在支持 HTTP 传输的 MCP 客户端中使用此 URL",
@@ -14443,7 +14443,7 @@
       "stdioDisabled": "stdio 已禁用",
       "oauthFlowUnset": {
         "badge": "尚未设置 OAuth 流程",
-        "tooltip": "此 OAuth 服务器尚未设置流程类型（机器到机器或交互式）。请打开并选择 OAuth 流程类型，确保 LiteLLM 按预期认证。"
+        "tooltip": "此 OAuth 服务器尚未设置流程类型（机器到机器或交互式）。请打开并选择 OAuth 流程类型，确保 LLM Firewall 按预期认证。"
       },
       "missingFields": {
         "summary_one": "缺少 {{count}} 个用户字段",
@@ -14791,7 +14791,7 @@
       "oauth2TokenExchange": "OAuth 令牌交换（OBO）",
       "oauth2IdJag": "ID-JAG（Okta Cross App Access）",
       "awsSigv4": "AWS SigV4（Bedrock AgentCore MCP）",
-      "truePassthrough": "完全透传（不使用 LiteLLM 认证）",
+      "truePassthrough": "完全透传（不使用 LLM Firewall 认证）",
       "oauthDelegate": "OAuth 委托（客户端提供的上游令牌）"
     },
     "transports": {
@@ -14814,9 +14814,9 @@
       "back": "返回",
       "intro": {
         "title": "连接 {{server}}",
-        "description": "LiteLLM 需要访问 {{server}} 才能完成您的请求。",
+        "description": "LLM Firewall 需要访问 {{server}} 才能完成您的请求。",
         "howItWorksTitle": "工作原理",
-        "howItWorks": "LiteLLM 充当安全桥梁。您的请求将通过我们的 MCP 客户端直接路由到 {{server}} 的 API。",
+        "howItWorks": "LLM Firewall 充当安全桥梁。您的请求将通过我们的 MCP 客户端直接路由到 {{server}} 的 API。",
         "requestedAccess": "请求的访问权限",
         "continue": "继续配置认证",
         "cancel": "取消"
@@ -14875,7 +14875,7 @@
     }
   },
   "mcpOAuthCallback": {
-    "authorizationComplete": "授权已完成。您可以关闭此窗口并返回 LiteLLM 控制台。",
+    "authorizationComplete": "授权已完成。您可以关闭此窗口并返回 LLM Firewall 控制台。",
     "manualCloseHint": "若窗口未自动关闭，授权信息仍已保存，您可以手动关闭此窗口。",
     "loading": "加载中…"
   },
@@ -15051,14 +15051,14 @@
         "duration": "持续时间",
         "timeToFirstToken": "首 Token 延迟",
         "responseCache": "响应缓存",
-        "responseCacheTooltip": "此请求是否直接由 LiteLLM 响应缓存（例如 Redis 或内存）返回，从而跳过对 LLM 提供商的调用。这与提供商的提示词缓存不同，此处未命中不代表提示词缓存失败。",
+        "responseCacheTooltip": "此请求是否直接由 LLM Firewall 响应缓存（例如 Redis 或内存）返回，从而跳过对 LLM 提供商的调用。这与提供商的提示词缓存不同，此处未命中不代表提示词缓存失败。",
         "hit": "命中",
         "miss": "未命中",
         "cacheKey": "缓存键",
-        "cacheKeyTooltip": "LiteLLM 为此请求计算的响应缓存键。相同缓存键的请求共用缓存响应；缓存键不同表示请求内容未匹配已有缓存。",
+        "cacheKeyTooltip": "LLM Firewall 为此请求计算的响应缓存键。相同缓存键的请求共用缓存响应；缓存键不同表示请求内容未匹配已有缓存。",
         "promptCacheReadTokens": "提示词缓存读取 Token 数",
         "promptCacheCreationTokens": "提示词缓存写入 Token 数",
-        "overhead": "LiteLLM 处理耗时",
+        "overhead": "LLM Firewall 处理耗时",
         "overheadValue": "{{value}} ms",
         "retries": "重试次数",
         "noRetries": "无",
@@ -15391,7 +15391,7 @@
       },
       "configInfo": {
         "title": "请求或响应数据不可用",
-        "description": "要查看请求和响应详情，请在您的 LiteLLM 配置中启用提示词存储：将以下内容添加到 <code>proxy_config.yaml</code> 文件中，或在<strong>管理设置 → 日志设置</strong>中切换该设置。",
+        "description": "要查看请求和响应详情，请在您的 LLM Firewall 配置中启用提示词存储：将以下内容添加到 <code>proxy_config.yaml</code> 文件中，或在<strong>管理设置 → 日志设置</strong>中切换该设置。",
         "note": "注意：仅影响配置变更后的新请求。"
       },
       "tools": {
@@ -15524,7 +15524,7 @@
       "table": {
         "emptyTitle": "暂无请求",
         "emptyFilteredTitle": "没有匹配的请求",
-        "emptyDescription": "通过 LiteLLM 代理的请求将显示在此处。",
+        "emptyDescription": "通过 LLM Firewall的请求将显示在此处。",
         "emptyFilteredDescription": "此时间范围内没有符合筛选条件的请求。",
         "loading": "正在加载请求日志…",
         "searchPlaceholder": "按 ID 搜索日志…",
@@ -15948,7 +15948,7 @@
       "footnote": {
         "scoped": "按所选精确时间范围内保留的请求日志统计。",
         "allUsers": "全部用户的总量按所选 UTC 日期的每日汇总统计，按人员筛选则使用精确时间范围。缓存值为已上报数量。",
-        "spend": "费用以 LiteLLM 记录为准。"
+        "spend": "费用以 LLM Firewall 记录为准。"
       }
     },
     "viewSelect": {
@@ -16861,12 +16861,12 @@
     "groups": {
       "heartbeat": {
         "title": "心跳检测",
-        "counts": "随机实例 ID、LiteLLM 版本、报告窗口及已启用的分组",
+        "counts": "随机实例 ID、LLM Firewall 版本、报告窗口及已启用的分组",
         "helps": "正在运行哪些版本"
       },
       "requestSuccess": {
         "title": "请求成功",
-        "slices": "端点、LiteLLM 状态、提供商状态、是否流式、是否由 Rust 处理及 LiteLLM 缓存命中情况",
+        "slices": "端点、LLM Firewall 状态、提供商状态、是否流式、是否由 Rust 处理及 LLM Firewall 缓存命中情况",
         "counts": "请求数、提供商请求尝试数、响应头与首字节延迟",
         "helps": "错误率和延迟退化，以及 Rust 与 Python 的差异"
       },
@@ -18222,19 +18222,19 @@
       },
       "perUserOauth": {
         "label": "按用户 GitHub OAuth",
-        "description": "每个 LiteLLM 用户在“LLM 凭据”中连接自己的 GitHub 账号，其请求将使用自己的 GitHub Copilot 访问权限。未连接的用户会收到 401 响应。"
+        "description": "每个 LLM Firewall 用户在“LLM 凭据”中连接自己的 GitHub 账号，其请求将使用自己的 GitHub Copilot 访问权限。未连接的用户会收到 401 响应。"
       },
       "oauthTokenExchange": {
         "label": "OAuth 令牌交换（代表调用方）",
-        "description": "LiteLLM 会在您的 IdP 令牌端点，将每个调用方由 IdP 签发的 JWT 交换为委托令牌。Microsoft Graph 仅接受 Microsoft Entra 令牌，因此对于 Microsoft 365 Copilot，令牌端点必须是 Entra，且调用方必须发送由 Entra 为此应用签发的 JWT。用户仍可通过任何与 Entra 联合的 IdP 登录。"
+        "description": "LLM Firewall 会在您的 IdP 令牌端点，将每个调用方由 IdP 签发的 JWT 交换为委托令牌。Microsoft Graph 仅接受 Microsoft Entra 令牌，因此对于 Microsoft 365 Copilot，令牌端点必须是 Entra，且调用方必须发送由 Entra 为此应用签发的 JWT。用户仍可通过任何与 Entra 联合的 IdP 登录。"
       },
       "staticToken": {
         "label": "静态委托访问令牌",
         "description": "为每个调用方发送同一个预先获取的 Microsoft Graph 委托令牌。"
       },
       "githubApp": {
-        "description": "通过 GitHub App 安装对服务进行身份验证。用量按该组织计费。LiteLLM 会自动刷新安装令牌。",
-        "uploadHelp": "请在下方上传您的 GitHub App PEM 文件。LiteLLM 会将其加密存储在凭据数据库中，并且仅显示已保存密钥的状态。请使用 HTTPS 并妥善保护您的代理加密密钥。无需 Enterprise 许可证。",
+        "description": "通过 GitHub App 安装对服务进行身份验证。用量按该组织计费。LLM Firewall 会自动刷新安装令牌。",
+        "uploadHelp": "请在下方上传您的 GitHub App PEM 文件。LLM Firewall 会将其加密存储在凭据数据库中，并且仅显示已保存密钥的状态。请使用 HTTPS 并妥善保护您的代理加密密钥。无需 Enterprise 许可证。",
         "invalidFile": "请选择不超过 16 KiB 的 .pem 文件。",
         "keyProvided": "已提供私钥。如需更改，请上传替换文件。"
       }
@@ -19165,7 +19165,7 @@
       "loadingProviders": "正在加载提供商…",
       "selectProvider": "选择提供商",
       "mode": "模式",
-      "healthCheckModeHint": "<strong>可选</strong>：对此模型进行健康检查时使用的 LiteLLM 端点。<docs>了解更多</docs>",
+      "healthCheckModeHint": "<strong>可选</strong>：对此模型进行健康检查时使用的 LLM Firewall 端点。<docs>了解更多</docs>",
       "credentialsChoiceHint": "选择已有凭据，或在下方输入新的提供商凭据",
       "existingCredentials": "现有凭据",
       "existingCredentialsPlaceholder": "选择或搜索现有凭据",
@@ -19232,7 +19232,7 @@
       "useInPassThrough": "用于透传路由",
       "useInPassThroughHint": "允许在透传路由中使用这些凭据。<docs>了解更多</docs>",
       "kubernetesPodDiscovery": "Kubernetes Pod 发现",
-      "kubernetesPodDiscoveryHint": "将 API Base 主机名视为 Kubernetes 无头服务：将其解析为就绪 Pod 的 IP，并将请求分散到这些 Pod 上。LiteLLM 必须运行在同一集群内。",
+      "kubernetesPodDiscoveryHint": "将 API Base 主机名视为 Kubernetes 无头服务：将其解析为就绪 Pod 的 IP，并将请求分散到这些 Pod 上。LLM Firewall 必须运行在同一集群内。",
       "litellmParams": "LiteLLM 参数",
       "litellmParamsHint": "调用 litellm.completion() 时使用的可选 LiteLLM 参数。",
       "litellmParamsDocs": "传入 litellm 支持参数的 JSON <docs>litellm.completion() 调用</docs>",
@@ -19240,13 +19240,13 @@
       "modelInfoHint": "可选的模型信息参数，调用 `/model/info` 接口时返回。"
     },
     "conditionalPublicModelName": {
-      "publicNameDescription": "调用 LiteLLM 代理 API 时使用的名称",
+      "publicNameDescription": "调用 LLM Firewall API 时使用的名称",
       "publicNameExample": "<strong>示例：</strong>如果您将公开模型命名为 <publicName/>，并选择 <litellmModel/> 作为 LiteLLM 模型",
-      "publicNameUsage": "<strong>用法：</strong>您使用 <request/> 向 LiteLLM 代理发起 API 调用",
-      "publicNameResult": "<strong>结果：</strong>LiteLLM 会将 <providerModel/> 发送给提供商",
+      "publicNameUsage": "<strong>用法：</strong>您使用 <request/> 向 LLM Firewall发起 API 调用",
+      "publicNameResult": "<strong>结果：</strong>LLM Firewall 会将 <providerModel/> 发送给提供商",
       "publicModelName": "公开模型名称",
       "litellmModelName": "LiteLLM 模型名称",
-      "litellmModelNameTooltip": "LiteLLM 发送给 LLM API 的模型名称",
+      "litellmModelNameTooltip": "LLM Firewall 发送给 LLM API 的模型名称",
       "modelMappings": "模型映射",
       "modelMappingsTooltip": "将公开模型名称映射到 LiteLLM 模型名称以实现负载均衡"
     },
@@ -19271,7 +19271,7 @@
     },
     "litellmModelName": {
       "label": "LiteLLM 模型名称",
-      "hint": "LiteLLM 发送给 LLM API 的模型名称",
+      "hint": "LLM Firewall 发送给 LLM API 的模型名称",
       "required": "请输入{{target}}。",
       "requiredDeploymentName": "部署名称",
       "requiredAtLeastOneModel": "至少一个模型",
@@ -19284,7 +19284,7 @@
       "customModelRequired": "请输入自定义模型名称。",
       "azureDeploymentPlaceholder": "输入 Azure 部署名称",
       "customModelPlaceholder": "输入自定义模型名称",
-      "azureHelp": "部署名称会保存为公开模型名称，LiteLLM 内部使用 azure/deployment-name"
+      "azureHelp": "部署名称会保存为公开模型名称，LLM Firewall 内部使用 azure/deployment-name"
     },
     "cacheControlSettings": {
       "label": "缓存控制注入点",
@@ -19293,7 +19293,7 @@
         "message": "消息"
       },
       "description": "Anthropic、Bedrock API 等提供商要求指定缓存控制检查点的位置。LiteLLM 可以自动添加检查点以节省成本。",
-      "roleHint": "LiteLLM 将此角色的所有消息标记为可缓存",
+      "roleHint": "LLM Firewall 将此角色的所有消息标记为可缓存",
       "indexHint": "可选，设置后 LiteLLM 将此索引对应的消息标记为可缓存",
       "labelHelp": "{{label}}帮助",
       "type": "类型",
@@ -19308,7 +19308,7 @@
     "providerSpecificFields": {
       "clickToUpload": "点击上传",
       "authType": "认证方式",
-      "authTypeHint": "选择 LiteLLM 向此提供商认证的方式。",
+      "authTypeHint": "选择 LLM Firewall 向此提供商认证的方式。",
       "credentialOnlyHint": "此认证方式会保存为 LLM 凭据并关联到此模型。",
       "createCredential": "创建凭据",
       "loadingFields": "正在加载提供商字段…",
@@ -19535,7 +19535,7 @@
       "sources": {
         "tokenFile": "身份令牌文件",
         "secretReference": "身份令牌密钥引用",
-        "internalIssuer": "LiteLLM 签名令牌（内部签发者）",
+        "internalIssuer": "LLM Firewall 签名令牌（内部签发者）",
         "keycloak": "Keycloak 客户端凭据",
         "environment": "代理环境变量"
       },
@@ -19872,7 +19872,7 @@
         "aboutAriaLabel": "关于凭据类型",
         "title": "凭据类型",
         "reusable": "可复用",
-        "reusableDescription": "保存在 LiteLLM 中，可供多个模型重复使用的凭据。",
+        "reusableDescription": "保存在 LLM Firewall 中，可供多个模型重复使用的凭据。",
         "manual": "手动",
         "manualDescription": "创建模型时直接添加或在配置文件中定义的凭据。"
       },
@@ -20028,7 +20028,7 @@
     "title": "添加透传端点",
     "intro": {
       "title": "什么是透传端点？",
-      "description": "将 LiteLLM 代理请求路由到外部 API，适用于自定义模型、图像生成 API 或其他需要 LiteLLM 代理的服务。"
+      "description": "将 LLM Firewall请求路由到外部 API，适用于自定义模型、图像生成 API 或其他需要 LLM Firewall的服务。"
     },
     "route": {
       "title": "路由配置",
@@ -20185,8 +20185,8 @@
   },
   "passThroughSecuritySection": {
     "title": "安全",
-    "description": "启用后，请求此端点必须提供有效的 LiteLLM 虚拟密钥",
-    "requireAuth": "要求 LiteLLM 身份认证"
+    "description": "启用后，请求此端点必须提供有效的 LLM Firewall 虚拟密钥",
+    "requireAuth": "要求 LLM Firewall 身份认证"
   },
   "passThroughSettings": {
     "passThroughSettings": {
@@ -20228,7 +20228,7 @@
         "actions": "操作"
       },
       "methodsTooltip": "此端点支持的 HTTP 方法",
-      "authenticationTooltip": "调用端点需要 LiteLLM 虚拟密钥",
+      "authenticationTooltip": "调用端点需要 LLM Firewall 虚拟密钥",
       "source": {
         "config": "配置文件",
         "db": "DB"
@@ -20612,7 +20612,7 @@
     },
     "scheduleDialog": {
       "title": "设置定期重新加载",
-      "description": "设置 LiteLLM 从远程来源获取最新定价数据的频率。",
+      "description": "设置 LLM Firewall 从远程来源获取最新定价数据的频率。",
       "intro": "定价数据自动重新加载间隔：",
       "intervalLabel": "重新加载间隔（小时）",
       "hoursUnit": "小时",
@@ -20693,16 +20693,16 @@
   },
   "transformRequest": {
     "transformRequestPanel": {
-      "description": "查看 LiteLLM 如何为指定提供商转换请求。",
+      "description": "查看 LLM Firewall 如何为指定提供商转换请求。",
       "original": {
         "title": "原始请求",
-        "description": "要发送至 LiteLLM /chat/completions 端点的请求。",
+        "description": "要发送至 LLM Firewall /chat/completions 端点的请求。",
         "placeholder": "按 Cmd/Ctrl + Enter 转换",
         "transform": "转换"
       },
       "transformed": {
         "title": "转换后的请求",
-        "description": "LiteLLM 如何为指定提供商转换请求。",
+        "description": "LLM Firewall 如何为指定提供商转换请求。",
         "sensitiveHeaders": "注意：不显示敏感请求头。",
         "copy": "复制到剪贴板"
       },
@@ -20831,7 +20831,7 @@
         "create_one": "创建 {{count}} 位用户",
         "create_other": "创建 {{count}} 位用户",
         "completeTitle": "用户创建完成",
-        "nextStep": "<emphasis>下一步：</emphasis>下载包含虚拟密钥和邀请链接的凭据文件。用户需要使用这些虚拟密钥通过 LiteLLM 发起 LLM 请求。",
+        "nextStep": "<emphasis>下一步：</emphasis>下载包含虚拟密钥和邀请链接的凭据文件。用户需要使用这些虚拟密钥通过 LLM Firewall 发起 LLM 请求。",
         "table": {
           "row": "行",
           "email": "邮箱",
@@ -21357,7 +21357,7 @@
       "appGroupTab": "应用组预算组"
     },
     "limits": {
-      "byline": "免费版：最多 5 个客户，每个客户最多 5 个团队，每个团队最多 5 名成员。LiteLLM <enterprise>Enterprise</enterprise> 可解除这些限制。",
+      "byline": "免费版：最多 5 个客户，每个客户最多 5 个团队，每个团队最多 5 名成员。LLM Firewall <enterprise>Enterprise</enterprise> 可解除这些限制。",
       "reachedTitle": "已达到客户管理免费版上限",
       "reachedDescription": "无法再创建新的客户、团队和成员。来自新客户或新成员的请求仍会正常处理，但不会在客户管理中统计。",
       "upgrade": "升级到 Enterprise"
@@ -21805,7 +21805,7 @@
       "highlight": "{{name}}，{{duration}} 秒。突出显示相关发现",
       "output": "{{name}} · 输出",
       "duration": "{{duration}}s",
-      "gateway": "LiteLLM 网关",
+      "gateway": "LLM Firewall 网关",
       "agents": "智能体集群",
       "agentSteps": "每次运行，每个记录的步骤",
       "infrastructure": "集中管理，运行于您的基础设施",

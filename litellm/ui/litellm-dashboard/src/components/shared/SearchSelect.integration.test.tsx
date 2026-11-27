@@ -53,7 +53,7 @@ describe("SearchSelect", () => {
     expect(input).toHaveValue("LiteLLM Gateway");
     expect(screen.getByRole("img", { name: "litellm_proxy logo" })).toHaveAttribute(
       "src",
-      expect.stringContaining("litellm_monogram"),
+      expect.stringContaining("llm_firewall_monogram"),
     );
 
     await user.click(screen.getByRole("button", { name: "Clear" }));

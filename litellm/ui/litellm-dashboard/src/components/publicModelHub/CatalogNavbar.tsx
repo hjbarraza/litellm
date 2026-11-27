@@ -23,7 +23,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { catalogTypography } from "./fonts";
-import blueLogo from "./images/litellm-primary-blue.svg";
+import brandLogo from "../../../public/assets/logos/llm_firewall_logo.svg";
+import brandLogoDark from "../../../public/assets/logos/llm_firewall_logo_dark.svg";
 
 const SEARCH_SHORTCUTS = "Meta+K Control+K";
 
@@ -70,7 +71,7 @@ export function CatalogNavbar({
           className="flex shrink-0 items-center gap-4 no-underline max-[1000px]:order-0 max-[1000px]:[&_img]:h-7 max-[1000px]:[&_img]:w-[116px]"
         >
           <Image
-            src={logoUrl || blueLogo}
+            src={logoUrl || brandLogo}
             alt={t("shell.navbar.logoAlt")}
             width={132}
             height={32}
@@ -78,13 +79,13 @@ export function CatalogNavbar({
             className="h-8 w-[132px] object-contain dark:hidden"
           />
           <Image
-            src={logoUrlDark || logoUrl || blueLogo}
+            src={logoUrlDark || logoUrl || brandLogoDark}
             alt=""
             aria-hidden
             width={132}
             height={32}
             unoptimized
-            className={`hidden h-8 w-[132px] object-contain dark:block ${!logoUrlDark && !logoUrl ? "brightness-0 invert" : ""}`}
+            className="hidden h-8 w-[132px] object-contain dark:block"
           />
           <span className="font-mono text-[10px] leading-[1.2] font-normal tracking-[1.4px] whitespace-nowrap text-muted-foreground uppercase max-[1180px]:hidden">
             / {title}

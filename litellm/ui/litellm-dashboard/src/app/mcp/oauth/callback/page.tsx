@@ -82,7 +82,7 @@ const McpOAuthCallbackContent = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-muted p-6">
       <div className="max-w-lg w-full rounded-lg bg-card shadow-md p-8 text-center space-y-4">
-        <h1 className="text-xl font-semibold text-foreground">{productNames.liteLLMMcpOAuth}</h1>
+        <h1 className="text-xl font-semibold text-foreground">{productNames.brandMcpOAuth}</h1>
         <p className="text-sm text-foreground">{t("mcpOAuthCallback.authorizationComplete")}</p>
         <p className="text-xs text-muted-foreground">{t("mcpOAuthCallback.manualCloseHint")}</p>
       </div>

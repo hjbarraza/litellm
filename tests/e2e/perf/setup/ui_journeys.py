@@ -185,7 +185,7 @@ def _login(page: Page, dashboard: Dashboard) -> None:
     page.get_by_placeholder("Enter your password").fill(dashboard.password)
     page.get_by_role("button", name="Login", exact=True).click()
     page.wait_for_url(lambda url: "/ui" in url and "/login" not in url)
-    expect(page.get_by_label("LiteLLM home")).to_be_visible()
+    expect(page.get_by_label("LLM Firewall home")).to_be_visible()
 
 
 def _is_data_fetch(response: Response) -> bool:
