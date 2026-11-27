@@ -44,13 +44,13 @@ function LoginLogo() {
   return (
     <div className="flex justify-center">
       <img
-        src={uiHref("assets/logos/litellm_logo.png")}
-        alt={productNames.liteLLM}
+        src={uiHref("assets/logos/llm_firewall_logo.svg")}
+        alt={productNames.brand}
         className="h-10 w-auto dark:hidden"
       />
       <img
-        src={uiHref("assets/logos/litellm_logo_dark.png")}
-        alt={productNames.liteLLM}
+        src={uiHref("assets/logos/llm_firewall_logo_dark.svg")}
+        alt={productNames.brand}
         className="hidden h-10 w-auto dark:block"
       />
     </div>

@@ -1,8 +1,6 @@
 export const productNames = {
-  liteLLM: "LiteLLM",
-  liteLLMWithLogo: "🚅 LiteLLM",
-  liteLLMProxy: "LiteLLM Proxy",
-  liteLLMMcpOAuth: "LiteLLM MCP OAuth",
+  brand: "LLM Firewall",
+  brandMcpOAuth: "LLM Firewall MCP OAuth",
   moyai: "Moyai",
   lens: "Lens",
   playground: "Playground",

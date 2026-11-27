@@ -25,7 +25,7 @@ function bundledLogoSrc(baseUrl: string, { dark, monogram }: { dark: boolean; mo
 export function SidebarBrand({
   accessToken,
   homeHref = uiHref(""),
-  homeLabel = "LiteLLM home",
+  homeLabel = `${productNames.brand} home`,
 }: {
   accessToken: string | null;
   homeHref?: string;
@@ -52,7 +52,7 @@ export function SidebarBrand({
             className="flex min-w-0 items-center"
             aria-label={homeLabel}
           >
-            <img src={logoSrc} alt={productNames.liteLLM} className={cn(LOGO_CLASS_NAME, "dark:hidden")} />
+            <img src={logoSrc} alt={productNames.brand} className={cn(LOGO_CLASS_NAME, "dark:hidden")} />
             <img
               src={darkLogoSrc}
               alt=""
